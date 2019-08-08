@@ -1,0 +1,77 @@
+@mixin media($type) {
+    @if $type==phone {
+        @media only screen and (max-width: $phoneWS) {
+            @content;
+        }
+    }
+
+    @else if $type==phoneMedium {
+        @media only screen and (min-width: $phoneWS) and (max-width: $phoneWL - 1) {
+            @content;
+        }
+    }
+
+    @else if $type==phoneLarge {
+        @media only screen and (min-width: $phoneWL) and (max-width: $tableWS - 1) {
+            @content;
+        }
+    }
+
+    @else if $type==tableSize {
+        @media only screen and (min-width: $tableWS) and (max-width: $desktopWS - 1) {
+            @content;
+        }
+    }
+
+    @else if $type==tableSize2 {
+        @media only screen and (min-width: $tableWS) and (max-width: $tableWL - 1) {
+            @content;
+        }
+    }
+
+    @else if $type==tableSize1 {
+        @media only screen and (min-width: $tableWL) and (max-width: $desktopWS - 1) {
+            @content;
+        }
+    }
+
+    @else if $type==desktopSmall {
+        @media only screen and (min-width: $desktopWS) and (max-width: $desktopWL - 1) {
+            @content;
+        }
+    }
+
+    @else if $type==desktop {
+        @media only screen and (min-width: $desktopWL) {
+            @content;
+        }
+    }
+}
+@mixin media__block__content {
+    @include media(phone){
+            flex-direction: column !important;
+            text-align: center;
+            font-size:0.8rem;
+             .block__name {
+                 margin: 0 3em;
+
+                 h3 {
+                     font-size: 1.3rem;
+                 }
+
+             }
+    };
+    @include media(phoneMedium){
+            flex-direction: column !important;
+            text-align: center;
+    };
+    @include media(phoneLarge){
+            flex-direction: column !important;
+            text-align: center;
+    };
+    @include media(tableSize2){
+            flex-direction: column!important;
+            text-align: center;
+           
+    };
+}
